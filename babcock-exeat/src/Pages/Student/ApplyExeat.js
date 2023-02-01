@@ -66,7 +66,7 @@ const ApplyExeat = () => {
 
   return (
     <Box sx={{ ml: { xs: "0", md: "240px" }, mt: 10 }}>
-      <Box sx={{ pl: { xs: 5, md: 10 }, pr: { xs: 5, md: 10 } }}>
+      <Box sx={{ pl: { xs: 3, md: 10 }, pr: { xs: 3, md: 10 } }}>
         <Typography
           sx={{
             color: "rgb(0,66,130)",
