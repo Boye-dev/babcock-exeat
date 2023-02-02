@@ -86,7 +86,7 @@ const SingleExeat = () => {
   }, [id]);
   return (
     <Box sx={{ ml: { xs: "0", md: "240px" }, mt: 10 }}>
-      <Box sx={{ pl: { xs: 10, md: 20 }, pr: { xs: 10, md: 20 } }}>
+      <Box sx={{ pl: { xs: 3, md: 10 }, pr: { xs: 3, md: 10 } }}>
         <Typography
           sx={{ color: "rgb(0,66,130)", fontWeight: "700", fontSize: "30px" }}
         >
@@ -97,7 +97,7 @@ const SingleExeat = () => {
             <LinearProgress color="primary" />
           </Box>
         ) : (
-          <Box sx={{ height: 480, width: "100%", mt: 5 }}>
+          <Box sx={{ height: 480, width: "100%", mt: 5, mb: 5 }}>
             <Typography sx={{ fontWeight: "400", fontSize: "20px", pb: 1 }}>
               Name - {data.student?.lastname} {data.student?.firstname}
             </Typography>

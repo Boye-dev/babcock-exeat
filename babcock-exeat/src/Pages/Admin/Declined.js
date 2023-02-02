@@ -92,7 +92,7 @@ const Declined = () => {
 
   return (
     <Box sx={{ ml: { xs: "0", md: "240px" }, mt: 10 }}>
-      <Box sx={{ pl: { xs: 3, md: 10 }, pr: { xs: 3, md: 10 } }}>
+      <Box sx={{ pl: { xs: 3, md: 10 }, pr: { xs: 3, md: 10 }, mb: 5 }}>
         <Typography
           sx={{ color: "rgb(0,66,130)", fontWeight: "700", fontSize: "30px" }}
         >

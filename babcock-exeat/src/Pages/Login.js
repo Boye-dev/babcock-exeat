@@ -97,8 +97,8 @@ const Login = () => {
             flexDirection: "column",
 
             height: "100vh",
-            pl: 5,
-            pr: 5,
+            pl: 3,
+            pr: 3,
           }}
         >
           <img src={logo} alt="logo" style={{ marginBottom: "40px" }} />
@@ -109,7 +109,7 @@ const Login = () => {
                 md: "40%",
               },
               backgroundColor: "white",
-              boxShadow: "1px 2px 10px 5px grey",
+              boxShadow: "1px 1px 15px 2px rgba(148, 147, 147, 0.404)",
               borderRadius: "8px",
             }}
           >
