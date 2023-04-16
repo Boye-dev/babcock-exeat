@@ -14,14 +14,14 @@ const Navbar = ({ setMobileOpen, mobileOpen }) => {
 
   return (
     <>
-      <Box sx={{ position: "sticky", top: "0" }}>
+      <Box sx={{ position: "sticky", top: "0", zIndex: "2000" }}>
         <Box
           sx={{
             // width: { md: `calc(100% - ${240}px)` },
             // ml: { md: `${240}px` },
 
             height: "80px",
-            zIndex: "200",
+            zIndex: "2000",
             backgroundColor: "rgb(0,66,130)",
             display: "flex",
             justifyContent: { xs: "space-between", md: "flex-end" },

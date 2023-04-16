@@ -8,6 +8,7 @@ const {
   createUserWithRole,
 
   authenticateUserWithRole,
+  updateAdmin,
 } = require("../services/userWithRole");
 const { translateError } = require("../services/mongo_helper");
 const {
@@ -113,6 +114,76 @@ router.post("/login", loginValidator, async (req, res) => {
 });
 
 // Edit Admin Details
+/* Edit a Patient */
+router.put(
+  "/editProfile/:id",
+
+  validate,
+  async (req, res) => {
+    try {
+      console.log("req body ", req.body);
+      const { id } = req.params;
+      let { firstname, lastname, hall } = req.body;
+
+      let check = await updateAdmin(id, {
+        firstname,
+        lastname,
+        hall,
+      });
+      console.log("User update ", check);
+      if (check[0] !== false) {
+        let admin = check[1];
+        admin.password = undefined;
+        admin.token = undefined;
+        admin.createdAt = undefined;
+        admin.updatedAt = undefined;
+        admin.__v = undefined;
+
+        console.log("User to be sent ", admin);
+        return res.json({
+          message: "User details updated successfully ",
+          status: "OK",
+          user: admin,
+        });
+      } else {
+        return res
+          .status(400)
+          .json({ error: check[2], actualError: check[1], status: "NOT OK" });
+      }
+    } catch (error) {
+      console.log("Error ", error);
+      return res.status(400).json({
+        error: "Something went wrong",
+        actualError: translateError(error),
+        status: "NOT OK",
+      });
+    }
+  }
+);
+
+router.put(
+  "/editUser/password/:id",
+
+  validate,
+  async (req, res) => {
+    let { id } = req.params;
+    console.log(req.body, id, "Testing ");
+
+    const { confirmNewPassword } = req.body;
+
+    const tryUpdate = await updatePatientPassword(id, confirmNewPassword);
+    console.log("Edit Patient password  ", tryUpdate);
+    if (tryUpdate[0] !== false) {
+      res.json({ message: "Password updated successfully", status: "OK" });
+    } else {
+      return res.status(400).json({
+        error: tryUpdate[2],
+        actualError: tryUpdate[1],
+        status: "NOT OK",
+      });
+    }
+  }
+);
 
 module.exports = router;
 //vendor,product,amount,quantity,status

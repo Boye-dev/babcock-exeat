@@ -88,6 +88,27 @@ const getUserByUserNumber = async (email) => {
     return [false, "User with that userNumber doesn't exist"];
   }
 };
+
+const updateAdmin = async (id, fields) => {
+  console.log(fields);
+  try {
+    const admin = await UserWithRole.findByIdAndUpdate(id, fields, {
+      new: true,
+    });
+    if (admin !== null) {
+      return [true, admin];
+    } else {
+      return [
+        false,
+        "User doesn't exist. User is null and/or has been deleted.",
+        "Something went wrong.",
+      ];
+    }
+  } catch (error) {
+    return [false, translateError(error), "Something went wrong"];
+  }
+};
+
 /* Get the current url */
 //NB: NODE_ENV specifies the environment in which an application is running
 
@@ -97,4 +118,5 @@ module.exports = {
   authenticateUserWithRole,
   getUserById,
   getUserByUserNumber,
+  updateAdmin,
 };
