@@ -14,8 +14,8 @@ const path = require("path");
 // Cors configuration
 const corsOptions = {
   origin: [
-    "http://localhost:3000",
-    // "https://babcock-exeat-production.up.railway.app",
+    // "http://localhost:3000",
+    "https://babcock-exeat.cyclic.app/",
   ],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
